@@ -1,14 +1,2 @@
-<app-login></app-login>
-
-<div *ngIf="(authService.user | async)">
-<ul>
-  <li *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
-    {{ todo.content }}
-	<button (click)="deleteTodo(todo)">Delete</button>
-  </li>
-</ul>
-
-<input type="text" placeholder="todo" [(ngModel)]="item">
-<button (click)="addTodo(item)">Add</button>
-
-</div>
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
