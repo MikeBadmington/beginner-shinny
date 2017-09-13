@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../auth.service';
+import { AngularFireDatabase, FirebaseListObservable }
+  from 'angularfire2/database';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

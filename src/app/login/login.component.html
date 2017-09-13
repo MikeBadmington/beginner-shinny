@@ -4,6 +4,7 @@
   <input type="text" [(ngModel)]="email" placeholder="email">
   <input type="password" [(ngModel)]="password" placeholder="password">
 
+<br>
   <button (click)="login()" [disabled]="!email || !password">
     Login
   </button>
@@ -11,8 +12,14 @@
   <button (click)="signup()" [disabled]="!email || !password">
     Signup
   </button>
+
+  <button (click)="forgotPassword()" [disabled]="!email">
+    Forgot password
+  </button>
+
   </div>
 
 <button (click)="logout()" *ngIf="authService.user | async">
   Logout
 </button>
+<p style="color: red"> {{ message }} </p>

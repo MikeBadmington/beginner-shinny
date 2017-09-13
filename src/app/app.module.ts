@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'upcoming-games', component: UpcomingGamesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'app-navbar', component: NavbarComponent },
-  { path: '*', component: HomeComponent }
+  { path: '**', component: HomeComponent }
 
 ];
 
@@ -46,7 +46,7 @@ const appRoutes: Routes = [
 	FormsModule,
   RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
 	AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

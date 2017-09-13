@@ -12,6 +12,7 @@ import { AngularFireDatabase, FirebaseListObservable }
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  message: string;
   
   constructor(public authService: AuthService) { }
 
@@ -19,17 +20,37 @@ export class LoginComponent implements OnInit {
   }
   
   signup() {
-    this.authService.signup(this.email, this.password);
-    this.email = this.password = '';
+    this.authService.signup(this.email, this.password).then((auth : string) =>
+    {
+        this.message = auth;
+        this.email = this.password = '';
+    })
+    .catch((error) =>
+   {
+    this.message = error;    
+  });
+    
   }
 
   login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';    
-  }
+    this.authService.login(this.email, this.password).then((auth : string) =>
+    {
+        this.message = auth;
+    })
+    .catch((error) =>
+   {
+    this.message = error;    
+  });
+}
+
 
   logout() {
     this.authService.logout();
+  }
+
+  forgotPassword(){
+    this.authService.forgotPassword(this.email);
+    
   }
 
 }
