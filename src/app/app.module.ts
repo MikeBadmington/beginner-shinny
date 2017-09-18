@@ -13,19 +13,27 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './auth.service';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AlertModule, DatepickerModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
 
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UpcomingGamesComponent } from './upcoming-games/upcoming-games.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { MyGamesComponent } from './my-games/my-games.component';
+import { AddGameComponent } from './add-game/add-game.component';
+import { CartComponent } from './cart/cart.component';
+import { AdminBarComponent } from './admin-bar/admin-bar.component';
 
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'upcoming-games', component: UpcomingGamesComponent },
+  { path: 'my-games', component: MyGamesComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'app-navbar', component: NavbarComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'logout', component: HomeComponent },
   { path: '**', component: HomeComponent }
 
 ];
@@ -38,7 +46,12 @@ const appRoutes: Routes = [
     LoginComponent,
     NavbarComponent,
     UpcomingGamesComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent,
+    MyGamesComponent,
+    AddGameComponent,
+    CartComponent,
+    AdminBarComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +64,9 @@ const appRoutes: Routes = [
 	AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     BsDropdownModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+	  AlertModule.forRoot(),
+  DatepickerModule.forRoot()
   ],
   providers: [AuthService, AngularFireDatabase],
   bootstrap: [AppComponent]

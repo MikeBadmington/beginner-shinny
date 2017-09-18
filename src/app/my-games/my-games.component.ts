@@ -5,19 +5,15 @@ import { AngularFireDatabase, FirebaseListObservable }
   from 'angularfire2/database';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-my-games',
+  templateUrl: './my-games.component.html',
+  styleUrls: ['./my-games.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class MyGamesComponent implements OnInit {
 
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-  }
-  
-  logout() {
-	this.authService.logout();
   }
 
 }

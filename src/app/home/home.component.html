@@ -1,16 +1,33 @@
-THIS IS THE HOMEPAGE
-
-
-
-<div *ngIf="(authService.user | async)">
-<ul>
-  <li *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
-    {{ todo.content }}
-	<button (click)="deleteTodo(todo)">Delete</button>
-  </li>
-</ul>
-
-<input type="text" placeholder="todo" [(ngModel)]="item">
-<button (click)="addTodo(item)">Add</button>
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">News</h3>
+  
+  <h3>BSC News</h3>
+</div>
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">About</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
 </div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">    
+  <h3 class="margin">More Info</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      
+    </div>
+    <div class="col-sm-4"> 
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      
+    </div>
+    <div class="col-sm-4"> 
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      
+    </div>
+  </div>
+</div>
+
+

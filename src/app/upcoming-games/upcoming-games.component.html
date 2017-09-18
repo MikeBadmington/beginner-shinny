@@ -1,3 +1,27 @@
+<div class = "upcoming-games">
 <p>
   upcoming-games works!
-</p>
+  {{ (authService.user | async)?.email }}
+ </p>
+ 
+  <div *ngIf="(authService.user | async)">
+<ul>
+  <li *ngFor="let game of (games$ | async)" [class.done]="game.done">
+    {{ game.date }}
+	
+	<button class="btn" (click)="deleteGame(game)">Delete</button>
+  </li>
+</ul>
+
+<alert type="info">{{ date.toDateString() }}</alert>
+<div style="display:inline-block; min-height:290px;">
+  <datepicker [(ngModel)]="date" showWeeks="true" name="datepicker"></datepicker>
+</div>
+<br>
+<input type="text" placeholder="game" [(ngModel)]="item">
+<button class="btn" (click)="addGame(item)">Add</button>
+</div>
+
+</div>
+
+
