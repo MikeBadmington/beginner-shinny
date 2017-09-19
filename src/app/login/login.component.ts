@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../auth.service';
 import { AngularFireDatabase, FirebaseListObservable }
   from 'angularfire2/database';
-
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,17 +13,23 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   message: string;
+  users$: FirebaseListObservable<any[]>;
   
-  constructor(public authService: AuthService) { }
+  constructor(private afd: AngularFireDatabase, public authService: AuthService) { }
 
   ngOnInit() {
+          this.users$ = this.afd.list('/users', {
+	query: { limitToFirst: 3}
+	});
   }
   
   signup() {
     this.authService.signup(this.email, this.password).then((auth : string) =>
     {
         this.message = auth;
+        this.users$.push({ email: this.email});
         this.email = this.password = '';
+        
     })
     .catch((error) =>
    {

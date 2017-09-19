@@ -65,5 +65,6 @@ export class AuthService {
     }, (error:Error) => { console.log('error sending reset')
     });
   }
+  
 
 }
