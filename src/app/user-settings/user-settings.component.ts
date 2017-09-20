@@ -10,7 +10,7 @@ import * as firebase from 'firebase/app';
   selector: 'app-user-settings',
   templateUrl: './user-settings.component.html',
   styleUrls: ['./user-settings.component.css'],
-  providers: [UserService]
+  providers: [UserService, AuthService]
 })
 export class UserSettingsComponent implements OnInit {
 
