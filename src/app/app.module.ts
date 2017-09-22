@@ -26,6 +26,7 @@ import { AddGameComponent } from './add-game/add-game.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminBarComponent } from './admin-bar/admin-bar.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { SignupComponent } from './signup/signup.component';
 
 const appRoutes: Routes = [
 
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'upcoming-games', component: UpcomingGamesComponent },
   { path: 'my-games', component: MyGamesComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'cart', component: CartComponent },
   { path: 'settings', component: UserSettingsComponent },
   { path: 'logout', component: HomeComponent },
@@ -54,7 +56,8 @@ const appRoutes: Routes = [
     AddGameComponent,
     CartComponent,
     AdminBarComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

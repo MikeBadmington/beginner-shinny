@@ -11,9 +11,7 @@
     Login
   </button>
 
-  <button class="btn btn-default" (click)="signup()" [disabled]="!email || !password">
-    Signup
-  </button>
+
 
   <button class="btn" (click)="forgotPassword()" [disabled]="!email">
     Forgot password
@@ -21,9 +19,11 @@
 
   </div>
 
-<button (click)="logout()" *ngIf="authService.user | async">
-  Logout
-</button>
+
 <p style="color: red"> {{ message }} </p>
 
+</div>
+
+<div class = "signup-link">
+<a href="signup"> Sign up </a>
 </div>

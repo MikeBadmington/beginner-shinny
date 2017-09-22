@@ -53,6 +53,8 @@ color: #FFFFFF !important;
   .login-body {
         background-color: #000000; /* Black */
       color: #ffffff;
+      display: block;
+
   }
   
   .login-body input {
@@ -61,9 +63,35 @@ color: #FFFFFF !important;
   }
   
  .login-body button {
-	
+	width: 250px;
  }
+
+ .signup-body {
+        background-color: #000000; /* Black */
+      color: #ffffff;
+      display: block;
+
+  }
+    .signup-body input {
+		color: #000000;
+		background-color: #EEE;
+        width: 400px;
+        margin-bottom: 10px;
+  }
  
+ .signup-link {
+     display: block;
+ }
+ .signup-body label {
+     padding-left: 5px;
+     width: 200px;
+ }
+
+  .signup-body button {
+	width: 250px;
+ }
+
+
  .upcoming-games {
  }
  
@@ -76,4 +104,5 @@ color: #FFFFFF !important;
       padding-bottom: 10px;
       margin-top: 10px;
       margin-bottom: 10px;
+      display: block;
   }
