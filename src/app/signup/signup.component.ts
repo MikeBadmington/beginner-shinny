@@ -17,7 +17,9 @@ export class SignupComponent implements OnInit {
   lastName: string;
   phone: string;
   message: string;
+  joinDate: Date = new Date();
   users$: FirebaseListObservable<any[]>;
+  newUser$: FirebaseListObservable<any[]>;
 
   constructor(private afd: AngularFireDatabase, public authService: AuthService) { }
 
@@ -26,16 +28,30 @@ export class SignupComponent implements OnInit {
 
 
   signup() {
-    this.authService.signup(this.email, this.password).then((auth : string) =>
+
+
+
+    this.authService.signup(this.email, this.password).then((auth : any) =>
     {
-        this.message = auth;
-        this.users$.push({ email: this.email});
-        this.email = this.password = '';
+
+        this.message = 'UID: ' + auth.uid;
+
+        // Add user to database with new auth UID
+        this.afd.object(`users/${auth.uid}`).set({
+          firstname: this.firstName,
+          lastname: this.lastName, 
+          phone: this.phone,
+          joindate: this.joinDate.getUTCDate()
+      });
+
         
-    })
+    }
+    
+    
+    )
     .catch((error) =>
    {
-    this.message = error;    
+    this.message = 'Error: ' + error;    
   });
     
   }

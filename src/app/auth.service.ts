@@ -8,10 +8,13 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  currentUser: firebase.User;
+  fbAuth: AngularFireAuth;
 
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
+    this.fbAuth = firebaseAuth;
 
   }
 
@@ -22,8 +25,9 @@ export class AuthService {
         .auth
         .createUserWithEmailAndPassword(email, password)
         .then(value => {
+          this.currentUser = this.fbAuth.auth.currentUser;
           console.log('Success!', value);
-          resolve();
+          resolve(value);
         })
         .catch(err => {
           var message = err.message;

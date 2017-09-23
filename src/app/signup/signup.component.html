@@ -1,6 +1,9 @@
 <div class="signup-body">
 
   <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+  <br>
+<p *ngIf="authService.user | async">UID:  {{ (authService.user | async)?.uid }}</p>
+<br>
 
   <div *ngIf="!(authService.user | async)">
     <label for="email">Email</label>
