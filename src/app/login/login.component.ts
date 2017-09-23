@@ -24,24 +24,13 @@ export class LoginComponent implements OnInit {
 	});
   }
   
-  signup() {
-    this.authService.signup(this.email, this.password).then((auth : string) =>
-    {
-        this.message = auth;
-        this.users$.push({ email: this.email});
-        this.email = this.password = '';
-        
-    })
-    .catch((error) =>
-   {
-    this.message = error;    
-  });
-    
-  }
 
   login() {
-    this.authService.login(this.email, this.password).then((auth : string) =>
+    this.authService.login(this.email, this.password).then((auth : any) =>
     {
+      this.afd.object(`users/${auth.uid}/last_logins`).set({
+        date: Date.now().toString(),
+      });
         this.message = auth;
     })
     .catch((error) =>

@@ -17,7 +17,6 @@ export class SignupComponent implements OnInit {
   lastName: string;
   phone: string;
   message: string;
-  joinDate: Date = new Date();
   users$: FirebaseListObservable<any[]>;
   newUser$: FirebaseListObservable<any[]>;
 
@@ -38,10 +37,17 @@ export class SignupComponent implements OnInit {
 
         // Add user to database with new auth UID
         this.afd.object(`users/${auth.uid}`).set({
-          firstname: this.firstName,
-          lastname: this.lastName, 
+          first_name: this.firstName,
+          last_name: this.lastName, 
           phone: this.phone,
-          joindate: this.joinDate.getUTCDate()
+          join_date: Date.now(),
+          groups: {
+            beginner: true,
+            intermediate: false
+          },
+          last_logins: Date.now(),
+          shopping_cart: null
+
       });
 
         

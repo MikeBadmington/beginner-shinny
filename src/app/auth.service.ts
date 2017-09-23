@@ -43,7 +43,7 @@ export class AuthService {
         .auth
         .signInWithEmailAndPassword(email, password)
         .then(value => {
-          resolve();
+          resolve(value);
           console.log('Nice, it worked!');
         })
         .catch(err => {

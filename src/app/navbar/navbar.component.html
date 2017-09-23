@@ -16,7 +16,7 @@
 		<li *ngIf="(authService.user | async)"><a href="my-games">My Games</a></li>
         <li *ngIf="!(authService.user | async)"><a href="login">Login / Signup</a></li>
 		<li *ngIf="(authService.user | async)"><a href="cart">Cart</a></li>
-        <li *ngIf="(authService.user | async)"><a href="#"  (click)="logout()">Logout</a></li>
+        <li *ngIf="(authService.user | async)"><a href="login"  (click)="logout()">Logout</a></li>
       </ul>
     </div>
   </div>
